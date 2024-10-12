@@ -1,7 +1,26 @@
-"use client";
 export const routes = [
-  {title:"Health Insaurance", route: "health" ,type:"route"},
-  { title: "Term Insaurance", route: "term", type: 'route' },
-  {title: "Motor Insaurance", route:"motor", type:"route"},
-  { title: "Contact us", route: "contact", type: 'route' },
+  {
+    title: "Health Insurance",
+    route: "health",
+    type: "route",
+    subLinks: [{
+      title: "Health Insurance 1", route: "Health_Insurance_1"
+    }]
+  },
+  {
+    title: "Term Insurance",
+    route: "term",
+    type: "route",
+    subLinks: [{
+      title: "Health Insurance 1", route: "Health_Insurance_1"
+    }]
+  },
+  {
+    title: "Motor Insurance",
+    route: "motor",
+    type: "route",
+    subLinks: [{
+      title: "Health Insurance 1", route: "Health_Insurance_1"
+    }]
+  },
 ];

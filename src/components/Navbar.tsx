@@ -1,12 +1,19 @@
 "use client";
 import {
+  Button,
+  Container,
+  Dropdown,
   Link,
   List,
   ListDivider,
   ListItem,
   ListItemButton,
   ListItemContent,
+  Menu,
+  MenuButton,
+  MenuItem,
   Sheet,
+  Stack,
   Typography,
   useTheme,
 } from "@mui/joy";
@@ -14,6 +21,7 @@ import { usePathname, useRouter } from "next/navigation";
 import NavLink from "next/link";
 import { routes } from "../routes";
 import Image from "next/image";
+import { ArrowDownIcon, BuildingLibraryIcon, ChevronDownIcon, PhoneIcon } from "@heroicons/react/16/solid";
 
 function NavBar() {
   const navigate = useRouter();
@@ -21,67 +29,40 @@ function NavBar() {
   const theme = useTheme()
   return (
     <Sheet
-    variant="plain"
       sx={{
-        display: { xs: 'none', sm: 'flex' },
-        position: "fixed",
-        top:0,
+        position: 'sticky',
+        top: 0,
         height: "64px",
-        width:"-webkit-fill-available",
-        zIndex: theme.zIndex.modal-1,
-        padding:"0 64px"
-
+        background: (theme) => theme.palette.background.body,
+        boxShadow: (theme) => theme.shadow.md
       }}
     >
-        <List sx={{display:"inline-block"}}>
-        <ListItem
-          sx={{
-            display:"inline-block"
-            
-          }}
-          
-        >
-          <ListItemButton onClick={() => navigate.push("/")}>
-            <ListItemContent sx={{ alignItems: "center", display: "flex", textAlign:"center"}}>
-            <Typography>HS</Typography>
-            </ListItemContent>
-          </ListItemButton>
-        </ListItem>
+      <Stack direction='row' maxWidth='lg' margin='auto' height={'64px'} alignItems='center' paddingX={2}>
+        <BuildingLibraryIcon height={26} />
+        <List sx={{
+          display: "flex", flexDirection: "row",
+          justifyContent: "flex-end",
+        }}>
+          {routes.map((item, index) => {
+            const NavItemLink = item.type === 'route' ? NavLink : Link;
+            return (
+              <ListItem key={index}>
+                <Dropdown>
+                  <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.title}</MenuButton>
+                  <Menu sx={{ border: 0, boxShadow: (theme) => theme.shadow.xl, padding: 2 }}>
+                    {item.subLinks.map(link =>
+                      <MenuItem sx={{ borderRadius: (theme) => theme.radius.sm }}>{link.title}</MenuItem>
+                    )}
+                  </Menu>
+                </Dropdown>
+              </ListItem>
+            );
+          })}
+          <ListItem>
+            <Button startDecorator={<PhoneIcon height={18} />}>Contact Us</Button>
+          </ListItem>
         </List>
-      <List sx={{display:"flex", flexDirection:"row",
-                      justifyContent:"flex-end",}}>
-        {routes.map((item,index) => {
-          const NavItemLink = item.type === 'route' ? NavLink : Link;
-          return (
-            <>
-            <ListItem sx={{ "--ListItem-paddingY": "1rem" }} key={index}>
-              <ListItemButton
-                selected={pathname.includes(item.route)}
-              >
-                <NavItemLink style={{ textDecoration: 'none' }} target={item.type === 'link' ? '_blank' : undefined} href={item.route}>
-                  <ListItemContent
-                    sx={(theme) => ({
-                      
-                      textDecoration: 'none',
-                      
-                      ...theme.typography["body-sm"],
-                      
-                      fontWeight:"600",
-                     
-                      
-                     })}
-                    
-                  >
-                    {item.title}
-                  </ListItemContent>
-                </NavItemLink>
-              </ListItemButton>
-            </ListItem>
-            {index<3 && <ListDivider inset="gutter" orientation="vertical" />}
-            </>
-          );
-        })}
-      </List>
+      </Stack>
     </Sheet>
   );
 }

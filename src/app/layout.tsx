@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
-import { Container } from "@mui/joy";
+import { Container, CssVarsProvider } from "@mui/joy";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import appTheme from "@/theme/theme";
 
 
 
@@ -19,8 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavBar/>
-        <Container sx={{ width: { md: '100%' }, paddingTop: {md: '64px' }, height:'100vh' }}>{children}</Container>
+        <AppRouterCacheProvider>
+          <CssVarsProvider theme={appTheme}>
+            <NavBar />
+            <Container>
+              {children}
+            </Container>
+          </CssVarsProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
