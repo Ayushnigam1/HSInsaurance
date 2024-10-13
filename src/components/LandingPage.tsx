@@ -53,8 +53,8 @@ We help you choose the best policy for your needs. We help you buy the policy. A
         right:'0',
         height:"500px"
     }}>
-        <CardContent>
-          <Typography level="h3" lineHeight={2} letterSpacing={1}>Advice you can count on</Typography>
+        <CardContent sx={{marginX:"15px"}}>
+          <Typography level="h3" lineHeight={2} letterSpacing={1} >Advice you can count on</Typography>
           <Typography lineHeight={1} letterSpacing={'.28px'} sx={{color:"#51636F"}}>When you book a call with Ditto, you get access to the best insurance advisors in town.</Typography>
           <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} marginY={3} paddingY={3}>
           <Card variant="plain">
