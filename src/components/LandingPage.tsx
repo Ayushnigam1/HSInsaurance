@@ -1,5 +1,5 @@
 import { CalendarIcon } from "@heroicons/react/16/solid";
-import { Button, Stack, Typography,Box, Container } from "@mui/joy";
+import { Button, Stack, Typography,Box, Container, Card, CardContent, CardActions } from "@mui/joy";
 import CustomCard from "./CustomCard";
 import { data } from "@/data";
 import { DataProps } from "@/interface/Datainterface";
@@ -45,6 +45,50 @@ We help you choose the best policy for your needs. We help you buy the policy. A
 }
         </Box>
         </Container>
+    </Stack>
+    <Stack paddingY={7} sx={{ backgroundImage:"url('https://placehold.co/1400x600/png')", height:"600px"}}>
+    <Card variant="plain" sx={{
+        width:"55%",
+        position:'absolute',
+        right:'0',
+        height:"500px"
+    }}>
+        <CardContent>
+          <Typography level="h3" lineHeight={2} letterSpacing={1}>Advice you can count on</Typography>
+          <Typography lineHeight={1} letterSpacing={'.28px'} sx={{color:"#51636F"}}>When you book a call with Ditto, you get access to the best insurance advisors in town.</Typography>
+          <Box display={'grid'} gridTemplateColumns={'1fr 1fr'} marginY={3} paddingY={3}>
+          <Card variant="plain">
+           
+        <CardContent>
+          <Typography level="title-lg">Plain card</Typography>
+          <Typography  sx={{color:"#51636F"}} fontSize={'14px'} letterSpacing={'-.28px'}>Description of the card.</Typography>
+        </CardContent>
+      </Card>
+      <Card variant="plain">
+        <CardContent>
+          <Typography level="title-lg">Plain card</Typography>
+          <Typography  sx={{color:"#51636F"}} fontSize={'14px'} letterSpacing={'-.28px'}>Description of the card.</Typography>
+        </CardContent>
+      </Card>
+      <Card variant="plain">
+        <CardContent>
+          <Typography level="title-lg">Plain card</Typography>
+          <Typography  sx={{color:"#51636F"}} fontSize={'14px'} letterSpacing={'-.28px'}>Description of the card.</Typography>
+        </CardContent>
+      </Card>
+      <Card variant="plain">
+        <CardContent>
+          <Typography level="title-lg">Plain card</Typography>
+          <Typography  sx={{color:"#51636F"}} fontSize={'14px'} letterSpacing={'-.28px'}>Description of the card.</Typography>
+        </CardContent>
+      </Card>
+      </Box>
+        </CardContent>
+        <CardActions>
+      <Button startDecorator={<CalendarIcon height={18}/>} size='lg'>Schedule a call</Button>
+    <Button size='lg' color='success'>Whatsapp</Button>
+      </CardActions>
+      </Card>
     </Stack>
     </>
  
