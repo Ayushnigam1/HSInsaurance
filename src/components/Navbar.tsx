@@ -33,6 +33,7 @@ function NavBar() {
         position: 'sticky',
         top: 0,
         height: "64px",
+        zIndex:10,
         background: (theme) => theme.palette.background.body,
         boxShadow: (theme) => theme.shadow.md
       }}

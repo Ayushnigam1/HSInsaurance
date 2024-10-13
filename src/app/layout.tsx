@@ -24,9 +24,9 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <CssVarsProvider theme={appTheme}>
             <NavBar />
-            <Container>
+            
               {children}
-            </Container>
+      
           </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
