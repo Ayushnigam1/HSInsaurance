@@ -1,39 +1,53 @@
 "use client";
 import {
   Button,
-  Container,
   Dropdown,
   Link,
   List,
-  ListDivider,
   ListItem,
-  ListItemButton,
-  ListItemContent,
   Menu,
   MenuButton,
   MenuItem,
   Sheet,
   Stack,
-  Typography,
   useTheme,
 } from "@mui/joy";
 import { usePathname, useRouter } from "next/navigation";
 import NavLink from "next/link";
 import { routes } from "../routes";
-import Image from "next/image";
-import { ArrowDownIcon, BuildingLibraryIcon, ChevronDownIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import { defineQuery } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import { BuildingLibraryIcon, ChevronDownIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import Insurance from "@/interface/Insurances";
+import { useEffect, useState } from "react";
+import useConv from "@/hooks/useConv";
+
+const getPlans = async () => {
+  const PLANS_QUERY = defineQuery(`*[_type == "Insurance"]{
+  insurance,
+  order,
+  "plans": *[_type == "Plan" && references(^._id)]{
+    plan
+  }
+}`)
+  const plans: Insurance[] = await client.fetch(PLANS_QUERY, {}, { next: { revalidate: 60 } })
+  return plans;
+}
 
 function NavBar() {
-  const navigate = useRouter();
-  const pathname = usePathname();
-  const theme = useTheme()
+  const [plans, setPlans] = useState<Insurance[]>([])
+  const { onClick } = useConv()
+
+  useEffect(() => {
+    getPlans().then((plans) => setPlans(plans))
+  }, [])
+
   return (
     <Sheet
       sx={{
         position: 'sticky',
         top: 0,
         height: "64px",
-        zIndex:10,
         background: (theme) => theme.palette.background.body,
         boxShadow: (theme) => theme.shadow.md
       }}
@@ -44,15 +58,14 @@ function NavBar() {
           display: "flex", flexDirection: "row",
           justifyContent: "flex-end",
         }}>
-          {routes.map((item, index) => {
-            const NavItemLink = item.type === 'route' ? NavLink : Link;
+          {plans.sort((a, b) => a.order - b.order).map((item, index) => {
             return (
               <ListItem key={index}>
                 <Dropdown>
-                  <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.title}</MenuButton>
+                  <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.insurance}</MenuButton>
                   <Menu sx={{ border: 0, boxShadow: (theme) => theme.shadow.xl, padding: 2 }}>
-                    {item.subLinks.map(link =>
-                      <MenuItem sx={{ borderRadius: (theme) => theme.radius.sm }}>{link.title}</MenuItem>
+                    {item.plans?.map(plan =>
+                      <MenuItem key={plan.plan} sx={{ borderRadius: (theme) => theme.radius.sm }}>{plan.plan}</MenuItem>
                     )}
                   </Menu>
                 </Dropdown>
@@ -60,7 +73,7 @@ function NavBar() {
             );
           })}
           <ListItem>
-            <Button startDecorator={<PhoneIcon height={18} />}>Contact Us</Button>
+            <Button startDecorator={<PhoneIcon height={18} />} onClick={onClick}>Contact Us</Button>
           </ListItem>
         </List>
       </Stack>

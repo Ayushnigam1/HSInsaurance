@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
-import { Container, CssVarsProvider } from "@mui/joy";
+import { CssVarsProvider } from "@mui/joy";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import appTheme from "@/theme/theme";
-
-
+import Footer from "@/components/Footer";
+import ConvProvider from "@/context/ConvContext/ConvProvider";
+import WhatsappModal from "@/components/WhatsappModal";
 
 export const metadata: Metadata = {
-  title: "Sozo",
-  description: "A insaurance app",
+  title: "Dhanwantri",
+  description: "A Insurance Consultancy",
 };
 
 export default function RootLayout({
@@ -23,10 +23,12 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
           <CssVarsProvider theme={appTheme}>
-            <NavBar />
-            
+            <ConvProvider>
+              <NavBar />
               {children}
-      
+              <Footer />
+              <WhatsappModal/>
+            </ConvProvider>
           </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>

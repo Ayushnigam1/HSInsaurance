@@ -14,7 +14,8 @@ const theme = extendTheme({
         JoyButton: {
             styleOverrides: {
                 root: ({theme}) => ({
-                    borderRadius: theme.radius.sm
+                    borderRadius: theme.radius.sm,
+                    transition: '250ms ease-in-out all'
                 })    
             }
         },
