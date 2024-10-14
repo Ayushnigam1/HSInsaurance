@@ -1,6 +1,6 @@
 "use client"
 import useConv from "@/hooks/useConv"
-import { DialogContent, DialogTitle, Modal, ModalClose, ModalDialog, Stack, Typography } from "@mui/joy"
+import {  Modal, ModalClose, ModalDialog, Stack, Typography } from "@mui/joy"
 
 const WhatsappModal = () => {
     const { open, onClose } = useConv()
