@@ -42,7 +42,7 @@ function NavBar() {
       sx={{
         position: 'sticky',
         top: 0,
-        zIndex: (theme) => theme.zIndex.modal,
+        zIndex: (theme) => theme.zIndex.popup,
         height: "64px",
         background: (theme) => theme.palette.background.body,
         boxShadow: (theme) => theme.shadow.md
