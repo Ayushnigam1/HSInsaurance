@@ -6,7 +6,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import appTheme from "@/theme/theme";
 import Footer from "@/components/Footer";
 import ConvProvider from "@/context/ConvContext/ConvProvider";
-import WhatsappModal from "@/components/WhatsappModal";
+import ContactModal from "@/components/ContactModal";
 
 export const metadata: Metadata = {
   title: "Dhanwantri",
@@ -27,7 +27,7 @@ export default function RootLayout({
               <NavBar />
               {children}
               <Footer />
-              <WhatsappModal/>
+              <ContactModal />
             </ConvProvider>
           </CssVarsProvider>
         </AppRouterCacheProvider>
