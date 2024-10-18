@@ -50,7 +50,7 @@ function NavBar() {
       }}
     >
       <Stack direction='row' maxWidth='lg' margin='auto' height={'64px'} alignItems='center' paddingX={2}>
-        <BuildingLibraryIcon height={26} />
+      <NavLink style={{textDecoration:"none",color:"black"}} href={'/'}><BuildingLibraryIcon height={26} /></NavLink>
         <List sx={{
           display: "flex", flexDirection: "row",
           justifyContent: "flex-end",
