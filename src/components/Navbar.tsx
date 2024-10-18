@@ -16,6 +16,7 @@ import { BuildingLibraryIcon, ChevronDownIcon, PhoneIcon } from "@heroicons/reac
 import Insurance from "@/interface/Insurances";
 import { useEffect, useState } from "react";
 import useConv from "@/hooks/useConv";
+import NavLink from 'next/link';
 
 const getPlans = async () => {
   const PLANS_QUERY = defineQuery(`*[_type == "Insurance"]{
@@ -58,10 +59,10 @@ function NavBar() {
             return (
               <ListItem key={index}>
                 <Dropdown>
-                  <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.insurance}</MenuButton>
+                  <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}><NavLink style={{textDecoration:"none",color:"black"}} href={item.insurance?.replace(/\s+/g, '_')}>{item.insurance}</NavLink> </MenuButton>
                   <Menu sx={{ border: 0, boxShadow: (theme) => theme.shadow.xl, padding: 2 }}>
                     {item.plans?.map(plan =>
-                      <MenuItem key={plan.plan} sx={{ borderRadius: (theme) => theme.radius.sm }}>{plan.plan}</MenuItem>
+                      <MenuItem key={plan.plan} sx={{ borderRadius: (theme) => theme.radius.sm }}><NavLink style={{textDecoration:"none",color:"black"}} href={`#${plan.plan?.replace(/\s+/g, '_')}`}>{plan.plan}</NavLink></MenuItem>
                     )}
                   </Menu>
                 </Dropdown>
