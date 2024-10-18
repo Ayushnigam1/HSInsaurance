@@ -29,7 +29,7 @@ export default function Term() {
                 <Typography level="h2" textAlign={'center'}>{insurance.replace(/_/g, ' ')} Guide</Typography>
                 {
                         plans.find((item)=>item?.insurance?.toLowerCase()===insurance.replace(/_/g, ' ').toLowerCase())?.plans?.map(plan =>
-                                (<Box key={plan.plan} id={plan.plan} sx={{margin:"10px"}}>
+                                (<Box key={plan.plan.replace(/\s+/g, '_')} id={plan.plan.replace(/\s+/g, '_')} sx={{margin:"100px",scrollMarginTop:"64px"}}>
                                  <Typography level="h4">{plan.plan}</Typography>
                                  </Box>
                                 ))
