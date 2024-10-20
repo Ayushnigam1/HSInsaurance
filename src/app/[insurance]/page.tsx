@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/joy";
+import { Container, Stack, Typography } from "@mui/joy";
 import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import Plan from "@/interface/Plans";

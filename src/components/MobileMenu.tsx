@@ -1,7 +1,6 @@
 "use client"
-import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Container, Drawer, IconButton, Link, List, ListItem, ListItemButton, ListItemContent, ModalClose, Sheet, Stack, Typography, useTheme } from "@mui/joy";
+import { Accordion, AccordionDetails, AccordionGroup, AccordionSummary, Drawer, IconButton, List, ListItem, ListItemButton, ListItemContent, ModalClose, Sheet, Stack, Typography, useTheme } from "@mui/joy";
 import NavLink from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import { Bars2Icon, BuildingLibraryIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import Insurance from "@/interface/Insurances";

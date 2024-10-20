@@ -1,7 +1,7 @@
 "use client"
 
-import { Sheet } from "@mui/joy"
-import { PropsWithChildren } from "react"
+import { Sheet } from "@mui/joy";
+import { PropsWithChildren } from "react";
 
 function AppBar(props: PropsWithChildren) {
     return (

@@ -1,6 +1,6 @@
 "use client"
 import { CalendarIcon } from "@heroicons/react/16/solid";
-import { Button, Stack, Typography, Box, Sheet, Container, Card, CardContent, CardActions, Grid } from "@mui/joy";
+import { Button, Stack, Typography, Sheet, Container, Card, CardContent, CardActions, Grid } from "@mui/joy";
 import CustomCard from "./CustomCard";
 import Insurance from "@/interface/Insurances";
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
