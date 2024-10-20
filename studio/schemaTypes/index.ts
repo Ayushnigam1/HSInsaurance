@@ -1,5 +1,5 @@
 import insuranceType from './insuranceType';
-import landingPageSettings from './LandingPageSettings';
+import landingPageSettings from './landingPageSettings';
 import planType from './planType';
 
 export const schemaTypes = [
