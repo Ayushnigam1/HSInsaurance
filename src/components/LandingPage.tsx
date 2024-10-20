@@ -37,9 +37,9 @@ function LandingPage(props: { insurances: Insurance[] }) {
                     </Stack>
                     <Grid container alignItems='stretch'>
                         {
-                            insurances.sort((a, b) => a.order - b.order).map((i) => {
+                            insurances.sort((a, b) => a.order - b.order).map((i,index) => {
                                 return (
-                                    <Grid xs={12} md={6} justifyContent={'stretch'}>
+                                    <Grid xs={12} md={6} justifyContent={'stretch'} key={index}>
                                         <CustomCard
                                             key={i.insurance}
                                             title={i.insurance}
