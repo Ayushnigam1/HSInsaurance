@@ -1,9 +1,9 @@
-import homeType from './homePage';
 import insuranceType from './insuranceType';
+import landingPageSettings from './LandingPageSettings';
 import planType from './planType';
 
 export const schemaTypes = [
-    homeType,
+    landingPageSettings,
     insuranceType,
     planType
 ]

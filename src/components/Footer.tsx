@@ -13,24 +13,12 @@ function Footer() {
                         <Typography level='body-sm' startDecorator={<PhoneIcon height={18}/>}>+91 1234567890</Typography>
                     </Stack>
                 </Stack>
-                <Stack component={'ul'} gap={1}>
+                {/*<Stack component={'ul'} gap={1}>
                     <Typography level='title-md'>Insurance</Typography>
                     <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
                     <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
                     <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                </Stack>
-                <Stack component={'ul'} gap={1}>
-                    <Typography level='title-md'>Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                </Stack>
-                <Stack component={'ul'} gap={1}>
-                    <Typography level='title-md'>Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                    <Typography component={'li'} level='body-sm' color="neutral">Health Insurance</Typography>
-                </Stack>
+                </Stack>*/}
             </Stack>
         </Container>
     </Sheet>

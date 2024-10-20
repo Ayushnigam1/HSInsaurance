@@ -1,42 +1,39 @@
-"use client"
-import { Box, Stack, Typography } from "@mui/joy";
-import { useParams } from 'next/navigation';
+import { Box, Container, Stack, Typography } from "@mui/joy";
 import { defineQuery } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import Insurance from "@/interface/Insurances";
-import { useEffect, useState } from "react";
-const getPlans = async () => {
-        const PLANS_QUERY = defineQuery(`*[_type == "Insurance"]{
-        insurance,
-        order,
-        "plans": *[_type == "Plan" && references(^._id)]{
-          plan
-        }
-      }`)
-        const plans: Insurance[] = await client.fetch(PLANS_QUERY, {}, { next: { revalidate: 60 } })
-        return plans;
-      }
-export default function Term() {
-        const [plans, setPlans] = useState<Insurance[]>([])
-        const params =useParams()
-        const insurance= params.insurance as string
-        useEffect(() => {
-                getPlans().then((plans) => setPlans(plans))
-              }, [])
-        return (
-                <>
-                <Stack paddingY={8}>
-                <Typography level="h2" textAlign={'center'}>{insurance.replace(/_/g, ' ')} Guide</Typography>
-                {
-                        plans.find((item)=>item?.insurance?.toLowerCase()===insurance.replace(/_/g, ' ').toLowerCase())?.plans?.map(plan =>
-                                (<Box key={plan.plan.replace(/\s+/g, '_')} id={plan.plan.replace(/\s+/g, '_')} sx={{margin:"100px",scrollMarginTop:"64px"}}>
-                                 <Typography level="h4">{plan.plan}</Typography>
-                                 </Box>
-                                ))
-                }
-                </Stack>
-              
-                </>
-                
-        )
+import Plan from "@/interface/Plans";
+import { getInsurances } from "@/util/getInsurances";
+
+const getPlans = async (insurance: string) => {
+	const PLANS_QUERY = defineQuery(`*[_type == "Plan" && insuranceType -> insurance == "${insurance}"]{ plan, description }`)
+	const plans: Plan[] = await client.fetch(PLANS_QUERY, {}, { next: { revalidate: 60 } })
+	return plans;
+}
+
+export async function generateStaticParams() {
+	const insurances = await getInsurances();
+	return insurances.map(({ insurance }) => ({ insurance: insurance.replace(/ /g, '_') }))
+}
+
+export default async function InsuranceSection({ params: { insurance } }: { params: { insurance: string } }) {
+	const resolvedInsurance = insurance.replace(/_/g, ' ')
+	const plans = await getPlans(resolvedInsurance)
+	return (
+		<>
+			<Container maxWidth={'md'}>
+				<Stack sx={{ paddingY: 8 }} gap={4}>
+					<Typography level="h2" textAlign={'center'}>{resolvedInsurance} Guide</Typography>
+					{
+						plans.map(plan =>
+						(<Stack key={plan.plan.replace(/\s+/g, '_')} id={plan.plan.replace(/\s+/g, '_')} sx={{ scrollMarginTop: "64px" }} gap={2}>
+							<Typography level="h3">{plan.plan}</Typography>
+							<Typography>{plan.description}</Typography>
+						</Stack>
+						))
+					}
+				</Stack>
+			</Container>
+		</>
+
+	)
 }

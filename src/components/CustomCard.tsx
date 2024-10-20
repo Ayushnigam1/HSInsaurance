@@ -21,7 +21,7 @@ function CustomCard(data: DataProps) {
           bgcolor: "white",
           margin: "20px",
           overflow: "hidden",
-          zIndex: 1
+          zIndex: 1,
 
         }}
       >
@@ -32,13 +32,13 @@ function CustomCard(data: DataProps) {
         </div>
         <CardContent>
           <Typography level="h3" lineHeight={2}>{data.title}</Typography>
-          <Typography level="body-md" lineHeight={1.5} sx={{ color: "#51636F" }}>
+          <Typography level="body-md" lineHeight={1.5} sx={{ color: "#51636F" }} textAlign='justify'>
             {data.text}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Schedule a call</Button>
-          <Button size='lg' onClick={onClick} startDecorator={<FontAwesomeIcon icon={faWhatsapp} />} color='success'>Whatsapp</Button>
+        <CardActions sx={{flexWrap: 'wrap'}}>
+          <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Schedule a call</Button>
+          <Button sx={{ width: { xs: '100%', sm: 'unset' } }} size='lg' onClick={onClick} startDecorator={<FontAwesomeIcon icon={faWhatsapp} />} color='success'>Whatsapp Us</Button>
         </CardActions>
       </Card>
     </>

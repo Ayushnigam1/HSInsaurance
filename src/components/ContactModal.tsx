@@ -9,17 +9,17 @@ const ContactModal = () => {
     const { open, onClose } = useConv()
     const theme = useTheme()
     return <Modal open={open} onClose={onClose}>
-        <ModalDialog sx={{ padding: 0, overflow: 'hidden', border: 0 }} >
-            <Sheet invertedColors variant='solid' sx={{ height: 300, position: 'absolute', left: 0, right: 0, background: theme.palette.primary[600]}}>
+        <ModalDialog sx={{ padding: 0, overflow: 'hidden', border: 0, width: {xs: "100%", sm: "unset"} }} >
+            <Sheet invertedColors variant='solid' sx={{ height: 300, position: 'absolute', left: 0, right: 0, background: theme.palette.primary[600] }}>
                 <Stack padding={3}>
                     <Typography level='h2'>Connect With Us</Typography>
                     <Typography level='body-md'>Feel free to contact and get best advice</Typography>
                 </Stack>
             </Sheet>
             <ModalClose variant='solid' color='primary' />
-            <Stack sx={{ padding: 3 }} gap={1} width='600px'>
+            <Stack sx={{ padding: 3 }} gap={1} maxWidth='md' width={"md"}>
                 <Box height={200}></Box>
-                <Stack direction='row' gap={3}>
+                <Stack direction={{ md: 'row' }} gap={3}>
                     <Card sx={{ boxShadow: 'sm', flex: 1 }} variant='plain'>
                         <CardContent sx={{ alignItems: 'self-start', gap: 1 }}>
                             <PhoneIcon color={theme.palette.primary[500]} height={22} />
