@@ -49,7 +49,7 @@ function MobileMenu(props: MobileMenuProps) {
 											</AccordionSummary>
 											<AccordionDetails>
 												{insurance.plans?.map((plan) =>
-													<NavLink key={plan.plan} style={{ textDecoration: "none", color: "black" }} href={`${insurance.insurance?.replace(/\s+/g, '_')}#${plan.plan?.replace(/\s+/g, '_')}`}>
+													<NavLink key={plan.plan} style={{ textDecoration: "none", color: "black" }} href={`/${insurance.insurance?.replace(/\s+/g, '_')}/${plan.plan?.replace(/\s+/g, '_')}`}>
 														<ListItemButton
 															onClick={() => setOpen(o => !o)}
 														>

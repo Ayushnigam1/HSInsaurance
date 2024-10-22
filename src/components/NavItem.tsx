@@ -11,7 +11,7 @@ function NavItem({ item }: { item: Insurance }) {
                 <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.insurance}</MenuButton>
                 <Menu sx={{ border: 0, boxShadow: (theme) => theme.shadow.xl, padding: 2 }}>
                     {item.plans?.map(plan =>
-                        <NavLink key={plan.plan} style={{ textDecoration: "none", color: "black" }} href={`${item.insurance?.replace(/\s+/g, '_')}#${plan.plan?.replace(/\s+/g, '_')}`}>
+                        <NavLink key={plan.plan} style={{ textDecoration: "none", color: "black" }} href={`/${item.insurance?.replace(/\s+/g, '_')}/${plan.plan?.replace(/\s+/g, '_')}`}>
                             <MenuItem sx={{ borderRadius: (theme) => theme.radius.sm }}>
                                 {plan.plan}
                             </MenuItem>
