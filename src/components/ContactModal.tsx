@@ -9,7 +9,7 @@ const ContactModal = () => {
     const { open, onClose } = useConv()
     const theme = useTheme()
     const isMobile = useMediaQuery('(max-width:600px)'); 
-    const whatsappNumber = '7879881902'; 
+    const whatsappNumber = '9087422886'; 
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, '')}`;
     const phoneLink = `tel:${whatsappNumber.replace(/\+/g, '')}`;
     return <Modal open={open} onClose={onClose}>
@@ -28,7 +28,7 @@ const ContactModal = () => {
                         <CardContent sx={{ alignItems: 'self-start', gap: 1 }}>
                             <PhoneIcon color={theme.palette.primary[500]} height={22} />
                             <Typography level='title-md'>Call Us</Typography>
-                            <Typography level='body-sm' color='neutral'>Need assistance? We're just one call away. Reach out to us now!</Typography>
+                            <Typography level='body-sm' color='neutral'>{`Need assistance? We're just one call away. Reach out to us now!`}</Typography>
                             <Box height={50}>
                             {isMobile ? (
                         <a href={phoneLink} style={{ textDecoration: 'none', color: 'blue', fontWeight: 'bold' }}>

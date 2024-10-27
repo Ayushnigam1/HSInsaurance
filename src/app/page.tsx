@@ -14,7 +14,7 @@ export default async function Home() {
   const insurances = await getText();
   return (
     <>
-      <LandingPage insurances={insurances} />
+      <LandingPage insurances={insurances??[]} />
     </>
   );
 }
