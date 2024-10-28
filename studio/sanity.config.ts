@@ -35,6 +35,7 @@ export default defineConfig({
         ),
         S.documentTypeListItem("Insurance"),
         S.documentTypeListItem("Plan"),
+        S.documentTypeListItem("Feature"),
     ])
   }), visionTool()],
 
