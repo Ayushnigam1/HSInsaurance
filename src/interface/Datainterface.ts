@@ -4,5 +4,4 @@ export interface DataProps {
     text:string,
     imageUrl:string,
     imageAlt:string,
-   
 }

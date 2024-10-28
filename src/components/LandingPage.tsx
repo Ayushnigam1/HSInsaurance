@@ -6,9 +6,10 @@ import Insurance from "@/interface/Insurances";
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useConv from "@/hooks/useConv";
+import { Feature } from "@/interface/Feature";
 
-function LandingPage(props: { insurances: Insurance[] }) {
-    const { insurances } = props
+function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
+    const { insurances, features } = props
     const { onClick } = useConv()
     return (
         <>
@@ -54,21 +55,22 @@ function LandingPage(props: { insurances: Insurance[] }) {
                     </Grid>
                 </Container>
             </Sheet>
-            <Stack paddingY={7} sx={{ backgroundImage: "url('https://placehold.co/1400x600/png')" }} alignItems={'end'}>
+            <Stack paddingY={7} paddingX={{xs: 2, md: 0}} sx={{ backgroundImage: "url('https://placehold.co/1400x600/png')" }} alignItems={'end'}>
                 <Card variant="plain" sx={{
-                    padding: '3rem'
+                    padding: '3rem',
+                    maxWidth: 'md'
                 }}>
                     <CardContent component={Stack} gap={2}>
-                        <Typography level="h3">Advice you can count on</Typography>
-                        <Typography color='neutral'>When you book a call with Ditto, you get access to the best insurance advisors in town.</Typography>
+                        <Typography level="h3">Your One-Stop Insurance Guide</Typography>
+                        <Typography color='neutral'>Get expert advice, compare plans, understand policies, and secure the best coverage—all with Dhanvanti.</Typography>
                         <Grid container marginY={3} paddingY={3}>
                             {
-                                [1, 2, 3, 4].map((index) =>
+                                features.map((f, index) =>
                                     <Grid key={index} xs={12} sm={6}>
                                         <Card variant="plain">
                                             <CardContent>
-                                                <Typography level="title-lg">Plain card</Typography>
-                                                <Typography color='neutral'>Description of the card.</Typography>
+                                                <Typography level="title-lg">{f.feature}</Typography>
+                                                <Typography color='neutral'>{f.description}</Typography>
                                             </CardContent>
                                         </Card>
                                     </Grid>
