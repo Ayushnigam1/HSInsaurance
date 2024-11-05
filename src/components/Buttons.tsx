@@ -1,8 +1,6 @@
 "use client";
 import { Button, Stack, Typography } from "@mui/joy";
-import { CalendarIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PhoneIcon } from "@heroicons/react/16/solid";
 import useConv from "@/hooks/useConv";
 const Buttons = () => {
   const { onClick } = useConv();

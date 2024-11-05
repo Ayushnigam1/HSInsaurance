@@ -1,9 +1,7 @@
 "use client";
 import useConv from "@/hooks/useConv";
 import { DataProps } from "@/interface/Datainterface";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CalendarIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import { PhoneIcon } from "@heroicons/react/16/solid";
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/joy";
 import Image from "next/image";
 
