@@ -1,4 +1,5 @@
 export default interface Plan {
     plan: string,
-    description: string
+    image: string,
+    body: object
 }

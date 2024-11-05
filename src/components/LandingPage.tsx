@@ -3,8 +3,6 @@ import { CalendarIcon } from "@heroicons/react/16/solid";
 import { Button, Stack, Typography, Sheet, Container, Card, CardContent, CardActions, Grid } from "@mui/joy";
 import CustomCard from "./CustomCard";
 import Insurance from "@/interface/Insurances";
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useConv from "@/hooks/useConv";
 import { Feature } from "@/interface/Feature";
 
@@ -21,8 +19,8 @@ function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
                             Get expert advice on insurance, understand your policy, get answers to your questions, and secure your coverage—all in one place.
                         </Typography>
                         <Stack direction='row' marginTop={2} gap={2} flexWrap='wrap' justifyContent='stretch'>
-                            <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Schedule a free call</Button>
-                            <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<FontAwesomeIcon icon={faWhatsapp} height={18} />} onClick={onClick} size='lg' color='success'>Whatsapp Us</Button>
+                            <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Contact Us Today!</Button>
+                            {/* <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<FontAwesomeIcon icon={faWhatsapp} height={18} />} onClick={onClick} size='lg' color='success'>Whatsapp Us</Button> */}
                         </Stack>
                     </Stack>
                     <img alt={'hero image'} src={'https://placehold.co/600x400/png'}></img>
@@ -36,7 +34,7 @@ function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
                             At Dhanvanti, we simplify insurance. Whether it’s medical, life, term, or motor insurance, we offer expert advice, answer your questions, and guide you to the right coverage—all in one place.
                         </Typography>
                     </Stack>
-                    <Grid container alignItems='stretch'>
+                    <Grid container alignItems='stretch' spacing={3} marginTop={3}>
                         {
                             insurances.sort((a, b) => a.order - b.order).map((i,index) => {
                                 return (
@@ -79,8 +77,8 @@ function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
                         </Grid>
                     </CardContent>
                     <CardActions sx={{ flexWrap: 'wrap' }}>
-                        <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Schedule a call</Button>
-                        <Button sx={{ width: { xs: '100%', sm: 'unset' } }} size='lg' startDecorator={<FontAwesomeIcon icon={faWhatsapp} onClick={onClick} />} color='success' onClick={onClick}>Whatsapp Us</Button>
+                        <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Contact Us Today!</Button>
+                        {/* <Button sx={{ width: { xs: '100%', sm: 'unset' } }} size='lg' startDecorator={<FontAwesomeIcon icon={faWhatsapp} onClick={onClick} />} color='success' onClick={onClick}>Whatsapp Us</Button> */}
                     </CardActions>
                 </Card>
             </Stack>

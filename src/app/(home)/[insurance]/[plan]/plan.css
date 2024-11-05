@@ -1,0 +1,127 @@
+/* General Content Wrapper */
+.portable {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+  
+  /* Headings */
+  .portable h1,
+  .portable h2,
+  .portable h3,
+  .portable h4,
+  .portable h5,
+  .portable h6 {
+    font-weight: 700;
+    color: #222;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  
+  .portable h1 {
+    font-size: 2.5rem;
+  }
+  
+  .portable h2 {
+    font-size: 2rem;
+  }
+  
+  .portable h3 {
+    font-size: 1.75rem;
+  }
+  
+  .portable h4 {
+    font-size: 1.5rem;
+  }
+  
+  .portable h5 {
+    font-size: 1.25rem;
+  }
+  
+  .portable h6 {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Paragraphs */
+  .portable p {
+    font-size: 1rem;
+    margin-bottom: 1.25em;
+    color: #444;
+  }
+  
+  /* Lists */
+  .portable ul,
+  .portable ol {
+    padding-left: 1.5em;
+    margin-bottom: 1.25em;
+  }
+  
+  .portable ul {
+    list-style-type: disc;
+  }
+  
+  .portable ol {
+    list-style-type: decimal;
+  }
+  
+  .portable li {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Blockquotes */
+  .portable blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666;
+    border-left: 4px solid #ccc;
+    padding-left: 1em;
+    margin: 1.5em 0;
+  }
+  
+  /* Links */
+  .portable a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .portable a:hover {
+    color: #0056b3;
+  }
+  
+  /* Images */
+  .portable img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5em 0;
+  }
+  
+  /* Code Block */
+  .portable pre {
+    background: #f6f8fa;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    margin-bottom: 1.25em;
+  }
+  
+  .portable code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.95em;
+  }
+  
+  /* Divider Line */
+  .portable hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2em 0;
+  }
+  
