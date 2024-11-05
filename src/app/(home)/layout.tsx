@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import NavBar from "@/components/Navbar";
 import { CssVarsProvider } from "@mui/joy";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
