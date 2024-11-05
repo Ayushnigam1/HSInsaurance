@@ -1,9 +1,10 @@
+"use client"
+import { NextStudio } from 'next-sanity/studio'
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
-import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './schemaTypes'
-import { setEngine } from 'crypto'
-import { Settings } from './configTypes/configTypes'
+import { Settings } from '../../../../studio/configTypes/configTypes'
+import { schemaTypes } from '../../../../studio/schemaTypes'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
 // Define the actions that should be available for singleton documents
 const singletonActions = new Set(["publish", "discardChanges", "restore"])
@@ -11,7 +12,7 @@ const singletonActions = new Set(["publish", "discardChanges", "restore"])
 // Define the singleton document types
 const singletonTypes = new Set([Settings.SiteSettingPage])
 
-export default defineConfig({
+const config = defineConfig({
   name: 'default',
   title: 'Dhanvanti',
 
@@ -38,7 +39,7 @@ export default defineConfig({
         S.documentTypeListItem("Plan"),
         S.documentTypeListItem("Feature"),
     ])
-  }), visionTool()],
+  }), vercelDeployTool()],
 
   schema: {
     types: schemaTypes,
@@ -57,3 +58,9 @@ export default defineConfig({
   },
 
 })
+
+function Studio() {
+    return <NextStudio config={config}/>
+}
+
+export default Studio

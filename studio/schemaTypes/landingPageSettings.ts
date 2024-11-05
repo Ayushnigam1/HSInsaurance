@@ -2,8 +2,8 @@ import {defineField, defineType} from 'sanity'
 import { Settings } from '../configTypes/configTypes'
 
 const landingPageSettings = defineType({
-  name: Settings.LandingPage,
-  title: 'Landing Page Settings',
+  name: Settings.SiteSettingPage as string,
+  title: 'Site Settings',
   description: 'Following settings are content for the landing page',
   type: 'document',
   fields: [
