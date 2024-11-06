@@ -1,17 +1,15 @@
 "use client";
 import { Button, Stack, Typography } from "@mui/joy";
-import { CalendarIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PhoneIcon } from "@heroicons/react/16/solid";
 import useConv from "@/hooks/useConv";
 const Buttons = () => {
   const { onClick } = useConv();
   return (
     <Stack
-      direction="row"
+      direction={{xs: "column", md:"row"}}
       marginTop={2}
       gap={1}
-      alignItems="center"
+      alignItems={{ md: "center"}}
       justifyContent="space-between"
     >
       <Typography level="h4">

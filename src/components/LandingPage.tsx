@@ -10,15 +10,24 @@ import {
   CardContent,
   CardActions,
   Grid,
+  Box,
   useTheme,
 } from "@mui/joy";
 import CustomCard from "./CustomCard";
 import Insurance from "@/interface/Insurances";
 import useConv from "@/hooks/useConv";
 import { Feature } from "@/interface/Feature";
+import { LandingData } from "@/interface/LandingPage";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-function LandingPage(props: { insurances: Insurance[]; features: Feature[] }) {
-  const { insurances, features } = props;
+function LandingPage(props: {
+  insurances: Insurance[];
+  features: Feature[];
+  landingData: LandingData;
+}) {
+  const { insurances, features, landingData } = props;
   const { onClick } = useConv();
   const theme = useTheme();
   return (
@@ -32,17 +41,16 @@ function LandingPage(props: { insurances: Insurance[]; features: Feature[] }) {
                   background: `-webkit-linear-gradient(${theme.palette.primary[400]}, ${theme.palette.primary[600]})`,
                   backgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  WebkitBackgroundClip: "text"
+                  WebkitBackgroundClip: "text",
                 }}
               >
-                Expert Insurance Consulting
+                {landingData.heading.split(" ").slice(0, 3).join(" ")}
               </span>
-              <br /> for Your Peace of Mind
+              <br />
+              {landingData.heading.split(" ").slice(3).join(" ")}
             </Typography>
             <Typography level="body-lg" color="neutral">
-              Get expert advice on insurance, understand your policy, get
-              answers to your questions, and secure your coverage—all in one
-              place.
+              {landingData.subheading}
             </Typography>
             <Stack
               direction="row"
@@ -62,10 +70,25 @@ function LandingPage(props: { insurances: Insurance[]; features: Feature[] }) {
               {/* <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<FontAwesomeIcon icon={faWhatsapp} height={18} />} onClick={onClick} size='lg' color='success'>Whatsapp Us</Button> */}
             </Stack>
           </Stack>
-          <img
-            alt={"hero image"}
-            src={"https://placehold.co/600x400/png"}
-          ></img>
+          <Box
+            width={"100%"}
+            maxHeight={"400px"}
+            minWidth={{ xs: "100%", md: "500px" }}
+            borderRadius="lg"
+            overflow="hidden"
+          >
+            <Image
+              alt={"hero image"}
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+              height={500}
+              width={500}
+              src={
+                landingData?.bannerimage
+                  ? urlFor(landingData?.bannerimage as SanityImageSource).url()
+                  : ""
+              }
+            />
+          </Box>
         </Stack>
       </Container>
       <Sheet color="neutral">
@@ -95,7 +118,7 @@ function LandingPage(props: { insurances: Insurance[]; features: Feature[] }) {
                       key={i.insurance}
                       title={i.insurance}
                       text={i.description}
-                      imageUrl="/Images/Healthinsurance.png"
+                      imageUrl={i.iconimage}
                       imageAlt="health"
                     />
                   </Grid>
@@ -107,7 +130,13 @@ function LandingPage(props: { insurances: Insurance[]; features: Feature[] }) {
       <Stack
         paddingY={7}
         paddingX={{ xs: 2, md: 0 }}
-        sx={{ backgroundImage: "url('https://placehold.co/1400x600/png')" }}
+        style={{
+          backgroundImage: `url(${
+            landingData?.backgroundimage
+              ? urlFor(landingData?.backgroundimage as SanityImageSource).url()
+              : ""
+          }`,
+        }}
         alignItems={"end"}
       >
         <Card

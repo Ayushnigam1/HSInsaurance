@@ -16,8 +16,12 @@ const landingPageSettings = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'actionButton',
-      type: 'string',
+      name: 'bannerimage',
+      type: 'image',
+    }),
+    defineField({
+      name: 'backgroundimage',
+      type: 'image',
     }),
   ],
 })

@@ -1,10 +1,10 @@
 "use client";
 import useConv from "@/hooks/useConv";
 import { DataProps } from "@/interface/Datainterface";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CalendarIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import { urlFor } from "@/sanity/lib/image";
+import { PhoneIcon } from "@heroicons/react/16/solid";
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/joy";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image from "next/image";
 
 function CustomCard(data: DataProps) {
@@ -21,7 +21,8 @@ function CustomCard(data: DataProps) {
       }}
     >
       <Typography level="h2" paddingY={3}>
-        <Image src={data.imageUrl} alt={data.imageAlt} width={70} height={70} />
+        <Image src={data.imageUrl ? urlFor(data.imageUrl as SanityImageSource).url()
+                      : ""} alt={data.imageAlt} width={70} height={70} />
       </Typography>
       <CardContent>
         <Typography level="h3" lineHeight={2}>
