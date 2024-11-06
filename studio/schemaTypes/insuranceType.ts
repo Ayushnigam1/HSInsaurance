@@ -6,6 +6,10 @@ const insuranceType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'iconimage',
+      type: 'image',
+    }),
+    defineField({
       name: 'insurance',
       type: 'string',
     }),

@@ -1,29 +1,51 @@
 "use client"
 import { CalendarIcon } from "@heroicons/react/16/solid";
-import { Button, Stack, Typography, Sheet, Container, Card, CardContent, CardActions, Grid } from "@mui/joy";
+import { Button, Stack, Typography, Sheet, Container, Card, CardContent, CardActions, Grid,Box } from "@mui/joy";
 import CustomCard from "./CustomCard";
 import Insurance from "@/interface/Insurances";
 import useConv from "@/hooks/useConv";
 import { Feature } from "@/interface/Feature";
+import { LandingData } from "@/interface/LandingPage";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
-    const { insurances, features } = props
+function LandingPage(props: { insurances: Insurance[], features: Feature[],landingData:LandingData }) {
+    const { insurances, features,landingData } = props
     const { onClick } = useConv()
     return (
         <>
             <Container>
                 <Stack paddingY={12} direction={{ lg: 'row' }} gap={2}>
                     <Stack alignContent={'center'} justifyContent='center' gap={1}>
-                        <Typography level='h1'>Expert Insurance Consulting for Your Peace of Mind</Typography>
+                        <Typography level='h1'>{landingData.heading}</Typography>
                         <Typography level='body-lg' color='neutral'>
-                            Get expert advice on insurance, understand your policy, get answers to your questions, and secure your coverage—all in one place.
+                            {landingData.subheading}
                         </Typography>
                         <Stack direction='row' marginTop={2} gap={2} flexWrap='wrap' justifyContent='stretch'>
                             <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<CalendarIcon height={18} />} onClick={onClick} size='lg'>Contact Us Today!</Button>
                             {/* <Button sx={{ width: { xs: '100%', sm: 'unset' } }} startDecorator={<FontAwesomeIcon icon={faWhatsapp} height={18} />} onClick={onClick} size='lg' color='success'>Whatsapp Us</Button> */}
                         </Stack>
                     </Stack>
-                    <img alt={'hero image'} src={'https://placehold.co/600x400/png'}></img>
+                    <Box
+                width={"100%"}
+                maxHeight={"500px"}
+                minWidth={"600px"}
+                borderRadius="lg"
+                overflow="hidden"
+              >
+                <Image
+                  height={500}
+                  width={500}
+				  style={{objectFit: 'fill', width: '100%', height: '100%'}}
+                  alt={"hero image"}
+                  src={
+                    landingData?.bannerimage
+                      ? urlFor(landingData?.bannerimage as SanityImageSource).url()
+                      : ""
+                  }
+                />
+              </Box>
                 </Stack>
             </Container>
             <Sheet color="neutral">
@@ -43,8 +65,8 @@ function LandingPage(props: { insurances: Insurance[], features: Feature[] }) {
                                             key={i.insurance}
                                             title={i.insurance}
                                             text={i.description}
-                                            imageUrl='/Images/Healthinsurance.png'
-                                            imageAlt='health'
+                                            imageUrl={i.iconimage}
+                                            imageAlt={i.insurance}
                                         />
                                     </Grid>
                                 )
