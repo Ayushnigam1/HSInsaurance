@@ -6,8 +6,8 @@ function Footer() {
         <Container>
             <Stack paddingY={4} direction='row' gap={2} justifyContent='space-between'>
                 <Stack gap={1}>
-                    <Typography level='h4'>Dhanvantri</Typography>
-                    <Typography color="neutral">Trusted guidance for all your insurance needs—Dhanvanti is here to help you make informed decisions</Typography>
+                    <Typography level='h4'>HS Insurance</Typography>
+                    <Typography color="neutral">Trusted guidance for all your insurance needs—HS Insurance is here to help you make informed decisions</Typography>
                     <Stack>
                         <Typography level='body-sm' startDecorator={<EnvelopeIcon height={18}/>}>dhavantri@gmail.com</Typography>
                         <Typography level='body-sm' startDecorator={<PhoneIcon height={18}/>}>+91 1234567890</Typography>

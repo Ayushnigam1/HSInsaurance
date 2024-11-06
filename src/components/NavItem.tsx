@@ -6,7 +6,7 @@ import NavLink from "next/link";
 
 function NavItem({ item }: { item: Insurance }) {
     return (
-        <ListItem>
+        <ListItem sx={{padding: 0}}>
             <Dropdown>
                 <MenuButton sx={{ border: 0 }} endDecorator={<ChevronDownIcon height={18} />}>{item.insurance}</MenuButton>
                 <Menu sx={{ border: 0, boxShadow: (theme) => theme.shadow.xl, padding: 2 }}>

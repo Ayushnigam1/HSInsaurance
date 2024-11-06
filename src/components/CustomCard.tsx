@@ -17,6 +17,7 @@ function CustomCard(data: DataProps) {
         boxShadow: "md",
         padding: 4,
         zIndex: 1,
+        background: 'white'
       }}
     >
       <Typography level="h2" paddingY={3}>
