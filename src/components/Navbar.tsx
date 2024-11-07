@@ -3,7 +3,6 @@ import {
 
   Stack,
 } from "@mui/joy";
-import { BuildingLibraryIcon } from "@heroicons/react/16/solid";
 import NavLink from 'next/link';
 import { getInsurances } from "@/util/getInsurances";
 import NavItem from "./NavItem";

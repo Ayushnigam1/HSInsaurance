@@ -1,5 +1,5 @@
 "use client";
-import { useMotionValue, useMotionValueEvent, useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import { Sheet, useTheme } from "@mui/joy";
 import { PropsWithChildren, useState } from "react";
 
