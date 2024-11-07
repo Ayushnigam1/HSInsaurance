@@ -6,10 +6,10 @@ const Buttons = () => {
   const { onClick } = useConv();
   return (
     <Stack
-      direction="row"
+      direction={{xs: "column", md:"row"}}
       marginTop={2}
       gap={1}
-      alignItems="center"
+      alignItems={{ md: "center"}}
       justifyContent="space-between"
     >
       <Typography level="h4">

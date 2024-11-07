@@ -14,7 +14,7 @@ const singletonTypes = new Set([Settings.SiteSettingPage])
 
 const config = defineConfig({
   name: 'default',
-  title: 'Dhanvanti',
+  title: 'HS Insurance',
 
   projectId: 'ebxjdnxu',
   dataset: 'production',

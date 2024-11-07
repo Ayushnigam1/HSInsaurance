@@ -8,7 +8,7 @@ import { TypedObject } from "sanity";
 import { urlFor } from "@/sanity/lib/image";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import Image from "next/image";
-import './plan.css';
+import "./plan.css";
 
 const getPlans = async (insurance: string) => {
   const PLANS_QUERY = defineQuery(
@@ -46,7 +46,14 @@ export default async function InsuranceSection({
     <Container maxWidth={"lg"} sx={{ paddingTop: 5 }}>
       {currentplan && (
         <>
-          <Typography level="h1" marginBottom={2}>
+          <Typography level="h1" marginBottom={2}
+                style={{
+                  background: `-webkit-linear-gradient(${'#60a5fa'}, ${'#2563eb'})`,
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  WebkitBackgroundClip: "text",
+                }}
+          >
             {currentplan.plan}
           </Typography>
           <Stack
@@ -61,14 +68,14 @@ export default async function InsuranceSection({
               <Box
                 width={"100%"}
                 maxHeight={"400px"}
-                minWidth={"500px"}
+                minWidth={{ xs: "100%", md: "500px" }}
                 borderRadius="lg"
                 overflow="hidden"
               >
                 <Image
                   height={500}
                   width={500}
-				  style={{objectFit: 'fill', width: '100%', height: '100%'}}
+                  style={{ objectFit: "fill", width: "100%", height: "100%" }}
                   alt={"hero image"}
                   src={
                     currentplan?.image
