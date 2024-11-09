@@ -18,12 +18,15 @@ import {
   useTheme,
 } from "@mui/joy";
 
-const ContactModal = () => {
+interface ContactProps {
+  phone?: string;
+}
+const ContactModal = (props: ContactProps) => {
   const { open, onClose } = useConv();
+  const { phone = "" } = props
   const theme = useTheme();
-  const whatsappNumber = "9087422886";
-  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\+/g, "")}`;
-  const phoneLink = `tel:${whatsappNumber.replace(/\+/g, "")}`;
+  const whatsappLink = `https://wa.me/${phone.replace(/\+/g, "")}`;
+  const phoneLink = `tel:${phone.replace(/\+/g, "")}`;
 
   return (
     <Modal open={open} onClose={onClose}>
