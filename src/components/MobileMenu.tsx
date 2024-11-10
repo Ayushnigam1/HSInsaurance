@@ -17,7 +17,7 @@ import {
   useTheme,
 } from "@mui/joy";
 import NavLink from "next/link";
-import { Bars2Icon, BuildingLibraryIcon } from "@heroicons/react/16/solid";
+import { Bars2Icon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import Insurance from "@/interface/Insurances";
 import ContactButton from "./ContactButton";
