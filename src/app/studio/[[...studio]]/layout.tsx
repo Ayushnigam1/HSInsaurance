@@ -3,7 +3,7 @@ import "../../globals.css";
 import { NextStudioLayout } from "next-sanity/studio";
 
 export const metadata: Metadata = {
-  title: "Dhanwantri",
+  title: "HS Insurance",
   description: "A Insurance Consultancy",
 };
 

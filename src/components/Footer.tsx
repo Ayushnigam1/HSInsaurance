@@ -71,9 +71,10 @@ function Footer(props: FooterProps) {
                   startDecorator={socialIcon(link.type)}
                   level="body-sm"
                   underline="none"
-                  color='neutral'
+                  color="neutral"
                   key={i}
-                  href={link.link}
+                  target="_blank"
+                  href={link.url}
                 >
                   {link.title}
                 </Link>

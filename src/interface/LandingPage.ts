@@ -1,6 +1,6 @@
 export interface Link {
     title: string,
-    link: string,
+    url: string,
     type: 'instagram' | 'facebook' | 'twitter' | 'instagram' | 'linkedin' | 'youtube'
 }
 
