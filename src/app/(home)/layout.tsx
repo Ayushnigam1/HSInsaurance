@@ -43,7 +43,7 @@ export default async function RootLayout({
               <NavBar />
               {children}
               <Footer phone={phone} email={email} links={links}  />
-              <ContactModal/>
+              <ContactModal phone={phone}/>
             </ConvProvider>
           </CssVarsProvider>
         </AppRouterCacheProvider>
