@@ -8,20 +8,22 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { Container, Link, Sheet, Stack, Typography } from "@mui/joy";
+import { Container, Link, Sheet, Stack, Typography,Divider,Box } from "@mui/joy";
+import Image from "next/image";
 
-function socialIcon(type: Pick<SocialLink, "type">["type"]) {
+
+function socialIcon(type: Pick<SocialLink, "type">["type"],link:Pick<SocialLink,"url">["url"]) {
   switch (type) {
     case "instagram":
-      return <FontAwesomeIcon height={18} icon={faInstagram} />;
+      return <Image src="/Images/instagram.svg" alt="Instagram" width={40} height={40}/>;
     case "facebook":
-      return <FontAwesomeIcon height={18} icon={faFacebook} />;
+      return <Image src="/Images/facebook.svg" alt="Facebook" width={40} height={40}/>
     case "linkedin":
-      return <FontAwesomeIcon height={18} icon={faLinkedin} />;
+      return <Image src="/Images/linkedin.svg" alt="Linkedin" width={40} height={40}/>;
     case "twitter":
-      return <FontAwesomeIcon height={18} icon={faTwitter} />;
+      return <Image src="/Images/twitter.svg" alt="Twitter" width={40} height={40}/>;
     case "youtube":
-      return <FontAwesomeIcon height={18} icon={faYoutube} />;
+      return <Image src="/Images/youtube.svg" alt="Youtube" width={40} height={40}/>;
     default:
       return null;
   }
@@ -35,54 +37,39 @@ interface FooterProps {
 function Footer(props: FooterProps) {
   const { phone, email, links = [] } = props;
   return (
-    <Sheet>
-      <Container>
-        <Stack
-          paddingY={4}
-          direction="row"
-          gap={2}
-          justifyContent="space-between"
-        >
-          <Stack gap={1}>
-            <Typography level="h4">HS Insurance</Typography>
-            <Typography color="neutral">
-              Trusted guidance for all your insurance needs—HS Insurance is here
-              to help you make informed decisions
-            </Typography>
-            <Stack gap={0.5}>
-              {email && (
-                <Typography
-                  level="body-sm"
-                  startDecorator={<EnvelopeIcon height={18} />}
-                >
-                  {email}
-                </Typography>
-              )}
-              {phone && (
-                <Typography
-                  level="body-sm"
-                  startDecorator={<PhoneIcon height={18} />}
-                >
-                  {phone}
-                </Typography>
-              )}
-              {(links ?? []).map((link, i) => (
-                <Link
-                  startDecorator={socialIcon(link.type)}
-                  level="body-sm"
-                  underline="none"
-                  color="neutral"
-                  key={i}
-                  target="_blank"
-                  href={link.url}
-                >
-                  {link.title}
-                </Link>
-              ))}
+    <Sheet sx={{justifyContent:"center",alignItems:"center"}}>
+         <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} gap={2} sx={{paddingY:"1rem",}}> 
+              <Typography level="h3">Contact on:</Typography>
+              <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} gap={2}>
+             
+                <Box
+                  height={40}
+                >  <Link href={`tel:${phone?.replace(/\+/g, "")}`} target="_blank"><Image src="/Images/phone.svg"  alt="Phone" width={40} height={40}/></Link>
+                </Box>
+                <Box
+                  height={40}
+                >   <Link href={`mailto:${email!}`} target="_blank">
+                <Image src="/Images/gmail.svg" alt="Gmail" width={45} height={45} />
+              </Link>
+                </Box>
+                 
+              </Stack>
             </Stack>
-          </Stack>
-        </Stack>
-      </Container>
+            <Divider sx={{ clipPath: 'inset(0px -100vmax)' }}/>
+            <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} gap={2} sx={{paddingY:"1rem",backgroundColor:"#60a5fa"}}> 
+              <Typography level="h3" textColor={'white'}> Follow Us :</Typography>
+              <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} gap={2}>
+              {(links ?? []).map((link, i) => (
+                <Box
+                  key={i}
+                  height={40}
+                >
+                  {socialIcon(link.type,link.url)}
+                </Box>
+              ))}
+              </Stack>
+            </Stack>
+         
     </Sheet>
   );
 }
