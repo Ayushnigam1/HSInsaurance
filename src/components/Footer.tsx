@@ -1,18 +1,10 @@
 import { Link as SocialLink } from "@/interface/LandingPage";
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { Container, Link, Sheet, Stack, Typography,Divider,Box } from "@mui/joy";
+
+import { Link, Sheet, Stack, Typography,Divider,Box } from "@mui/joy";
 import Image from "next/image";
 
 
-function socialIcon(type: Pick<SocialLink, "type">["type"],link:Pick<SocialLink,"url">["url"]) {
+function socialIcon(type: Pick<SocialLink, "type">["type"]) {
   switch (type) {
     case "instagram":
       return <Image src="/Images/instagram.svg" alt="Instagram" width={40} height={40}/>;
@@ -64,7 +56,7 @@ function Footer(props: FooterProps) {
                   key={i}
                   height={40}
                 >
-                  {socialIcon(link.type,link.url)}
+                  {socialIcon(link.type)}
                 </Box>
               ))}
               </Stack>
